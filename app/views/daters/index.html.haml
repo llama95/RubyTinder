@@ -1,0 +1,32 @@
+%h1 Listing daters
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Username
+      %th Password
+      %th Phone number
+      %th Gender
+      %th Age
+      %th
+      %th
+      %th
+
+  %tbody
+    - @daters.each do |dater|
+      %tr
+        %td= dater.name
+        %td= dater.username
+        %td= dater.password
+        %td= dater.phone_number
+        %td= dater.gender
+        %td= dater.age
+        %td= link_to 'Show', dater
+        %td= link_to 'Edit', edit_dater_path(dater)
+        %td= link_to 'Destroy', dater, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'sign in as', dater_loginas_path(dater)
+
+%br
+
+= link_to 'New Dater', new_dater_path

@@ -1,0 +1,32 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @dater.name
+%p
+  %b Username:
+  = @dater.username
+%p
+  %b Phone number:
+  - if @showPhone
+    = @dater.phone_number
+  -else
+    Cannot show Phone
+%p
+  %b Gender:
+  = @dater.gender
+%p
+  %b Age:
+  = @dater.age
+%p
+  =render 'interests'
+%p
+  %b Picture:
+= image_tag @dater.profpic.url(:medium)
+</br>
+= link_to 'Back',   daters_path
+\|
+= link_to 'Edit', edit_dater_path(@dater)
+\|
+= link_to 'Matches Inbox', matches_inbox_path
+

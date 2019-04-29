@@ -1,0 +1,12 @@
+%form
+%h1 Sign In To Your Kindling™ Account
+= flash[:message] if flash[:message]
+= form_tag login_path, :method => :post do
+  = label :user, :username, "Username"
+  = text_field :user, :username
+  = label :user, :password, "Password"
+  = password_field :user, :password
+  </br>
+  %input{:type => "submit", :value => "Sign in"}
+
+=link_to 'Back', root_path

@@ -1,0 +1,32 @@
+%h1 Edit Your Kindling™ Profile
+
+= form_for @dater do |f|
+  - if @dater.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dater.errors.count, "error")} prohibited this dater from being saved:"
+      %ul
+        - @dater.errors.full_messages.each do |message|
+          %li= message
+
+  = flash[:message] 
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :phone_number
+    = f.text_field :phone_number
+  .field
+    = f.label :gender
+    = f.select :gender, ['Undisclosed', 'Male', 'Female', 'Non-binary', 'Other']
+  .field
+  .actions
+    = f.submit 'Save'
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="reset" value="Clear Form" />
+= link_to 'Back', daters_path
+=link_to 'View Profile', @dater

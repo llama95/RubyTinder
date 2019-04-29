@@ -1,0 +1,19 @@
+
+%h1 Swipe to find love <3
+</br>
+= form_tag swiping_path, :method => :post do
+  - if @dater != nil
+    Name:
+    = @dater.name
+    </br>
+    = image_tag @dater.profpic.url(:medium)
+    </br>
+    = render 'interests'
+    </br>
+    </br>
+    = submit_tag "X"
+    = submit_tag "✓"
+  - else
+    You have no more people to swipe on!
+=link_to 'Matches Inbox', matches_inbox_path
+=link_to 'Edit Profile', edit_dater_path(session[:logined_dater])

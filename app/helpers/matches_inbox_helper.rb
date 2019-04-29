@@ -1,0 +1,2 @@
+module MatchesInboxHelper
+end

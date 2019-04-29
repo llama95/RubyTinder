@@ -1,0 +1,40 @@
+%h1 Tired of Waking Up Alone? Join Today.
+%h2 100% of Kindling™ Members Find Love**
+%h4 ** fabricated statistic
+= form_for @dater do |f|
+  - if @dater.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dater.errors.count, "error")} prohibited this dater from being saved:"
+      %ul
+        - @dater.errors.full_messages.each do |message|
+          %li= message
+
+  = flash[:message] 
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :phone_number
+    = f.text_field :phone_number
+  .field
+    = f.label :gender
+    = f.select :gender, ['Undisclosed', 'Male', 'Female', 'Non-binary', 'Other']
+  .field
+    = f.label :age
+    = f.number_field :age
+  .field
+    <label> Profile Picture </label>
+    = f.file_field :profpic
+  .field
+    = f.label :interests
+    = f.text_field(:interests,:value => "")
+  .actions
+    = f.submit 'Save'
+    <input type="reset" value="Clear Form" />
+= link_to 'Back', root_path 

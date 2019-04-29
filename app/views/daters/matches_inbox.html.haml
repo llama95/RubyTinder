@@ -1,0 +1,14 @@
+%h1 Welcome to your Matches Inbox </br>
+= link_to "Go Swipe!", swiping_path
+%table#matches
+  %thead
+    %tr
+      %th Match Name
+      %th Match Phone Number
+      %th Match Profile Link
+  %tbody
+    - @matches.each do |match|
+      %tr
+        %td= match.name
+        %td= match.phone_number
+        %td= link_to "#{match.name}'s profile", dater_path(match.id)
